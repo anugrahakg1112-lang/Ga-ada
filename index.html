@@ -16,13 +16,10 @@
 
 body {
     min-height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 20px;
-
     color: white;
 
     background:
@@ -35,11 +32,8 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-
     overflow-x: hidden;
 }
-
-/* Cahaya merah */
 
 body::before {
     content: "";
@@ -56,22 +50,14 @@ body::before {
     pointer-events: none;
 }
 
-/* Cahaya bergerak */
-
 .red-glow {
     position: fixed;
-
     width: 250px;
     height: 250px;
-
     border-radius: 50%;
-
     background: red;
-
     filter: blur(120px);
-
     opacity: 0.18;
-
     top: -100px;
     right: -80px;
 
@@ -79,7 +65,6 @@ body::before {
 }
 
 @keyframes glowMove {
-
     from {
         transform: translate(0,0);
     }
@@ -89,23 +74,16 @@ body::before {
     }
 }
 
-/* Container */
-
 .container {
     width: 100%;
     max-width: 430px;
-
     position: relative;
     z-index: 2;
 }
 
-/* Kartu */
-
 .card {
     padding: 32px 22px;
-
     text-align: center;
-
     border-radius: 28px;
 
     background: rgba(0,0,0,0.60);
@@ -123,7 +101,6 @@ body::before {
 }
 
 @keyframes cardIn {
-
     from {
         opacity: 0;
         transform: scale(0.85);
@@ -135,14 +112,10 @@ body::before {
     }
 }
 
-/* Logo */
-
 .logo {
     width: 105px;
     height: 105px;
-
     object-fit: cover;
-
     border-radius: 50%;
 
     border: 3px solid red;
@@ -155,7 +128,6 @@ body::before {
 }
 
 @keyframes logoFloat {
-
     0%,100% {
         transform: translateY(0);
     }
@@ -165,11 +137,8 @@ body::before {
     }
 }
 
-/* Nama */
-
 h1 {
     margin-top: 18px;
-
     font-size: 28px;
 
     text-shadow:
@@ -178,67 +147,47 @@ h1 {
 
 .username {
     margin-top: 7px;
-
     color: #ff5555;
-
     font-size: 14px;
 }
 
 .bio {
     margin-top: 18px;
     margin-bottom: 25px;
-
     color: #ddd;
-
     font-size: 14px;
-
     line-height: 1.6;
 }
-
-/* Garis */
 
 .line {
     width: 70px;
     height: 3px;
-
     margin: 18px auto;
 
     background: red;
-
     border-radius: 10px;
 
     box-shadow:
         0 0 12px red;
 }
 
-/* ========================= */
-/* LINK WHATSAPP JATUH */
-/* ========================= */
-
 .links {
     width: 100%;
 }
 
-/* Tombol */
-
 .link {
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 12px;
 
     width: 100%;
-
     padding: 17px;
 
     border-radius: 17px;
 
     color: white;
-
     text-decoration: none;
-
     font-weight: bold;
 
     background:
@@ -253,8 +202,6 @@ h1 {
     box-shadow:
         0 0 15px rgba(37,211,102,0.15);
 
-    /* JATUH DARI ATAS */
-
     opacity: 0;
 
     animation:
@@ -267,10 +214,7 @@ h1 {
     transition: 0.25s;
 }
 
-/* Animasi jatuh */
-
 @keyframes linkDrop {
-
     0% {
         opacity: 0;
 
@@ -290,7 +234,6 @@ h1 {
     }
 
     65% {
-
         transform:
             translateY(-15px)
             rotate(-2deg)
@@ -298,7 +241,6 @@ h1 {
     }
 
     80% {
-
         transform:
             translateY(7px)
             rotate(1deg)
@@ -315,10 +257,7 @@ h1 {
     }
 }
 
-/* Saat disentuh */
-
 .link:hover {
-
     transform: scale(1.03);
 
     border-color: #25d366;
@@ -328,7 +267,6 @@ h1 {
 }
 
 .link:active {
-
     transform: scale(0.95);
 }
 
@@ -336,13 +274,9 @@ h1 {
     font-size: 24px;
 }
 
-/* Footer */
-
 .footer {
     margin-top: 25px;
-
     color: #888;
-
     font-size: 12px;
 }
 
@@ -353,10 +287,7 @@ h1 {
         0 0 8px red;
 }
 
-/* HP kecil */
-
 @media (max-width:400px) {
-
     .card {
         padding: 28px 18px;
     }
@@ -395,7 +326,7 @@ h1 {
         </h1>
 
         <div class="username">
-            @DANCOGEMING
+            @dancogeming
         </div>
 
         <div class="line"></div>
@@ -436,4 +367,4 @@ h1 {
 </div>
 
 </body>
-</html>
+            </html>
