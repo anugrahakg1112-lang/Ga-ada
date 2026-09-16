@@ -4,130 +4,406 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DANCOGEMING</title>
+<title>DANCOGEMING | Official</title>
+
+<meta name="description" content="Halaman resmi DANCOGEMING - Gaming, Content & Community">
+<meta name="theme-color" content="#ff0000">
 
 <style>
+
+/* =========================
+   RESET
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+
+    padding: 25px 15px;
+
     color: white;
 
     background:
         linear-gradient(
-            rgba(0,0,0,0.45),
-            rgba(0,0,0,0.80)
+            rgba(0,0,0,.58),
+            rgba(0,0,0,.90)
         ),
         url("746657.png");
 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+
     overflow-x: hidden;
 }
 
-body::before {
-    content: "";
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
     position: fixed;
     inset: 0;
 
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 20%,
-            rgba(0,0,0,0.5)
-        );
+    overflow: hidden;
 
     pointer-events: none;
+
+    z-index: 0;
 }
 
-.red-glow {
-    position: fixed;
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background: red;
-    filter: blur(120px);
-    opacity: 0.18;
-    top: -100px;
-    right: -80px;
+.glow {
+    position: absolute;
 
-    animation: glowMove 5s infinite alternate;
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: red;
+
+    filter: blur(110px);
+
+    opacity: .18;
+
+    animation: glowMove 7s infinite alternate ease-in-out;
+}
+
+.glow.one {
+    top: -100px;
+    left: -100px;
+}
+
+.glow.two {
+    bottom: -120px;
+    right: -100px;
+
+    animation-delay: 2s;
 }
 
 @keyframes glowMove {
+
+    0% {
+        transform: translate(0,0) scale(1);
+    }
+
+    50% {
+        transform: translate(100px,80px) scale(1.2);
+    }
+
+    100% {
+        transform: translate(-50px,150px) scale(.9);
+    }
+}
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particles span {
+
+    position: absolute;
+
+    display: block;
+
+    width: 4px;
+    height: 4px;
+
+    background: #ff2020;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px red,
+        0 0 20px red;
+
+    opacity: .7;
+
+    animation: particleFloat linear infinite;
+}
+
+.particles span:nth-child(1) {
+    left: 10%;
+    animation-duration: 8s;
+    animation-delay: 1s;
+}
+
+.particles span:nth-child(2) {
+    left: 25%;
+    animation-duration: 11s;
+    animation-delay: 3s;
+}
+
+.particles span:nth-child(3) {
+    left: 40%;
+    animation-duration: 9s;
+    animation-delay: 2s;
+}
+
+.particles span:nth-child(4) {
+    left: 55%;
+    animation-duration: 13s;
+    animation-delay: 4s;
+}
+
+.particles span:nth-child(5) {
+    left: 70%;
+    animation-duration: 10s;
+    animation-delay: 1s;
+}
+
+.particles span:nth-child(6) {
+    left: 85%;
+    animation-duration: 12s;
+    animation-delay: 5s;
+}
+
+@keyframes particleFloat {
+
     from {
-        transform: translate(0,0);
+        transform:
+            translateY(110vh)
+            scale(.5);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .8;
+    }
+
+    80% {
+        opacity: .8;
     }
 
     to {
-        transform: translate(-100px,120px);
+        transform:
+            translateY(-20vh)
+            scale(1.4);
+
+        opacity: 0;
     }
 }
 
+
+/* =========================
+   MAIN
+========================= */
+
 .container {
+
     width: 100%;
-    max-width: 430px;
+    max-width: 450px;
+
     position: relative;
+
     z-index: 2;
 }
 
+
+/* =========================
+   CARD
+========================= */
+
 .card {
-    padding: 32px 22px;
+
+    position: relative;
+
+    padding: 35px 23px 25px;
+
     text-align: center;
-    border-radius: 28px;
 
-    background: rgba(0,0,0,0.60);
+    border-radius: 30px;
 
-    border: 1px solid rgba(255,0,0,0.35);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25,25,25,.82),
+            rgba(0,0,0,.68)
+        );
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    border:
+        1px solid rgba(255,0,0,.35);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
     box-shadow:
-        0 0 35px rgba(255,0,0,0.20),
-        0 25px 70px rgba(0,0,0,0.7);
 
-    animation: cardIn 0.8s ease;
+        0 0 20px rgba(255,0,0,.15),
+
+        0 0 70px rgba(255,0,0,.08),
+
+        0 30px 80px rgba(0,0,0,.8);
+
+    animation: cardIn 1s cubic-bezier(.17,.67,.32,1.2);
+
+    overflow: hidden;
+}
+
+
+/* garis neon atas */
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 8%;
+
+    width: 84%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        red,
+        #ff5555,
+        red,
+        transparent
+    );
+
+    box-shadow:
+        0 0 15px red,
+        0 0 30px red;
+
+    animation: lineMove 3s infinite;
+}
+
+@keyframes lineMove {
+
+    0% {
+        opacity: .3;
+        transform: scaleX(.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    100% {
+        opacity: .3;
+        transform: scaleX(.5);
+    }
 }
 
 @keyframes cardIn {
+
     from {
         opacity: 0;
-        transform: scale(0.85);
+
+        transform:
+            translateY(50px)
+            scale(.85);
     }
 
     to {
         opacity: 1;
-        transform: scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-wrapper {
+
+    width: 120px;
+    height: 120px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+
+/* lingkaran glow */
+
+.logo-wrapper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -7px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid rgba(255,0,0,.7);
+
+    box-shadow:
+        0 0 15px red,
+        0 0 35px rgba(255,0,0,.6),
+        inset 0 0 20px rgba(255,0,0,.3);
+
+    animation: logoRing 2.5s infinite linear;
+}
+
+@keyframes logoRing {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
 
 .logo {
+
     width: 105px;
     height: 105px;
+
     object-fit: cover;
+
     border-radius: 50%;
 
-    border: 3px solid red;
+    border: 3px solid #ff1717;
 
     box-shadow:
         0 0 15px red,
-        0 0 35px rgba(255,0,0,0.6);
+        0 0 40px rgba(255,0,0,.55);
 
     animation: logoFloat 3s infinite ease-in-out;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 @keyframes logoFloat {
+
     0%,100% {
         transform: translateY(0);
     }
@@ -137,209 +413,508 @@ body::before {
     }
 }
 
+
+/* =========================
+   NAME
+========================= */
+
 h1 {
-    margin-top: 18px;
-    font-size: 28px;
+
+    margin-top: 20px;
+
+    font-size: 29px;
+
+    letter-spacing: 1px;
 
     text-shadow:
+        0 0 8px red,
+        0 0 20px rgba(255,0,0,.5);
+
+    animation: textGlow 2s infinite alternate;
+}
+
+@keyframes textGlow {
+
+    from {
+        text-shadow:
+            0 0 7px red;
+    }
+
+    to {
+        text-shadow:
+            0 0 10px red,
+            0 0 25px red;
+    }
+}
+
+.verified {
+
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 21px;
+    height: 21px;
+
+    margin-left: 4px;
+
+    border-radius: 50%;
+
+    background: #ff1717;
+
+    color: white;
+
+    font-size: 14px;
+
+    box-shadow:
         0 0 10px red;
 }
 
+
+/* =========================
+   USERNAME
+========================= */
+
 .username {
-    margin-top: 7px;
-    color: #ff5555;
+
+    margin-top: 8px;
+
+    color: #ff6868;
+
     font-size: 14px;
+
+    letter-spacing: .5px;
 }
 
-.bio {
-    margin-top: 18px;
-    margin-bottom: 25px;
-    color: #ddd;
-    font-size: 14px;
-    line-height: 1.6;
-}
+
+/* =========================
+   LINE
+========================= */
 
 .line {
-    width: 70px;
+
+    width: 80px;
     height: 3px;
-    margin: 18px auto;
+
+    margin: 20px auto;
 
     background: red;
-    border-radius: 10px;
+
+    border-radius: 20px;
 
     box-shadow:
-        0 0 12px red;
+        0 0 10px red,
+        0 0 25px red;
+
+    animation: linePulse 2s infinite alternate;
 }
 
+@keyframes linePulse {
+
+    from {
+        width: 55px;
+        opacity: .6;
+    }
+
+    to {
+        width: 100px;
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   BIO
+========================= */
+
+.bio {
+
+    margin:
+
+        0 auto 27px;
+
+    max-width: 350px;
+
+    color: #ddd;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+
+    padding: 7px 14px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,0,0,.08);
+
+    border:
+        1px solid rgba(255,0,0,.25);
+
+    color: #ff8888;
+
+    font-size: 12px;
+}
+
+.status-dot {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #ff2020;
+
+    box-shadow:
+        0 0 8px red,
+        0 0 15px red;
+
+    animation: statusPulse 1.3s infinite;
+}
+
+@keyframes statusPulse {
+
+    0%,100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: .5;
+    }
+}
+
+
+/* =========================
+   LINK BUTTON
+========================= */
+
 .links {
+
     width: 100%;
 }
 
 .link {
+
+    position: relative;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 12px;
 
     width: 100%;
-    padding: 17px;
 
-    border-radius: 17px;
+    padding: 18px;
+
+    border-radius: 18px;
 
     color: white;
+
     text-decoration: none;
+
+    font-size: 16px;
+
     font-weight: bold;
 
     background:
         linear-gradient(
             135deg,
-            rgba(37,211,102,0.30),
-            rgba(0,80,40,0.20)
+            rgba(37,211,102,.30),
+            rgba(0,90,45,.18)
         );
 
-    border: 1px solid rgba(37,211,102,0.45);
+    border:
+        1px solid rgba(37,211,102,.5);
 
     box-shadow:
-        0 0 15px rgba(37,211,102,0.15);
+        0 0 15px rgba(37,211,102,.12);
 
-    opacity: 0;
+    overflow: hidden;
+
+    transition:
+        transform .25s,
+        box-shadow .25s,
+        border-color .25s;
 
     animation:
-        linkDrop
-        1.5s
-        cubic-bezier(.17,.67,.32,1.4)
-        0.5s
-        forwards;
-
-    transition: 0.25s;
+        buttonIn
+        1s
+        .5s
+        both;
 }
 
-@keyframes linkDrop {
-    0% {
+@keyframes buttonIn {
+
+    from {
         opacity: 0;
-
-        transform:
-            translateY(-500px)
-            rotate(-12deg)
-            scale(0.8);
+        transform: translateY(30px);
     }
 
-    45% {
+    to {
         opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        transform:
-            translateY(30px)
-            rotate(5deg)
-            scale(1.05);
+
+/* efek cahaya tombol */
+
+.link::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.25),
+            transparent
+        );
+
+    transform: skewX(-25deg);
+
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+
+    0% {
+        left: -120%;
     }
 
-    65% {
-        transform:
-            translateY(-15px)
-            rotate(-2deg)
-            scale(0.98);
-    }
-
-    80% {
-        transform:
-            translateY(7px)
-            rotate(1deg)
-            scale(1.01);
-    }
-
+    45%,
     100% {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            rotate(0)
-            scale(1);
+        left: 140%;
     }
 }
 
 .link:hover {
-    transform: scale(1.03);
+
+    transform:
+        translateY(-4px)
+        scale(1.02);
 
     border-color: #25d366;
 
     box-shadow:
-        0 0 25px rgba(37,211,102,0.45);
+        0 0 20px rgba(37,211,102,.3),
+        0 10px 30px rgba(0,0,0,.4);
 }
 
 .link:active {
-    transform: scale(0.95);
+
+    transform:
+        scale(.95);
 }
 
 .icon {
-    font-size: 24px;
+
+    font-size: 25px;
+
+    filter:
+        drop-shadow(
+            0 0 5px rgba(255,255,255,.5)
+        );
 }
+
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer {
-    margin-top: 25px;
-    color: #888;
+
+    margin-top: 27px;
+
+    color: #777;
+
     font-size: 12px;
+
+    line-height: 1.6;
 }
 
-.verified {
-    color: #ff3333;
+.footer strong {
 
-    text-shadow:
-        0 0 8px red;
+    color: #aaa;
 }
 
-@media (max-width:400px) {
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 400px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
     .card {
-        padding: 28px 18px;
+        padding:
+            30px 17px 23px;
+    }
+
+    .logo-wrapper {
+        width: 105px;
+        height: 105px;
     }
 
     .logo {
-        width: 90px;
-        height: 90px;
+        width: 92px;
+        height: 92px;
     }
 
     h1 {
-        font-size: 25px;
+        font-size: 24px;
+    }
+
+    .bio {
+        font-size: 14px;
+    }
+
+    .link {
+        padding: 16px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<div class="red-glow"></div>
+
+<!-- =========================
+     BACKGROUND
+========================= -->
+
+<div class="background">
+
+    <div class="glow one"></div>
+
+    <div class="glow two"></div>
+
+    <div class="particles">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
 
 <div class="container">
 
     <div class="card">
 
-        <!-- LOGO -->
-        <img
-            class="logo"
-            src="746657.png"
-            alt="DANCOGEMING"
-        >
 
-        <!-- NAMA -->
+        <!-- LOGO -->
+
+        <div class="logo-wrapper">
+
+            <img
+                class="logo"
+                src="746657.png"
+                alt="Logo DANCOGEMING"
+            >
+
+        </div>
+
+
+        <!-- NAME -->
+
         <h1>
+
             DANCOGEMING
-            <span class="verified">✓</span>
+
+            <span class="verified">
+                ✓
+            </span>
+
         </h1>
 
+
+        <!-- USERNAME -->
+
         <div class="username">
+
             @dancogeming
+
         </div>
+
+
+        <!-- LINE -->
 
         <div class="line"></div>
 
+
         <!-- BIO -->
+
         <p class="bio">
+
             🎮 Gaming • Content • Community
+
             <br>
-            Selamat datang di halaman resmi DANCOGEMING!
+
+            Selamat datang di halaman resmi
+            <strong>DANCOGEMING</strong>!
+
         </p>
 
-        <!-- LINK -->
+
+        <!-- STATUS -->
+
+        <div class="status">
+
+            <span class="status-dot"></span>
+
+            Komunitas Online
+
+        </div>
+
+
+        <!-- LINKS -->
+
         <div class="links">
+
 
             <a
                 class="link"
@@ -348,7 +923,9 @@ h1 {
                 rel="noopener noreferrer"
             >
 
-                <span class="icon">💬</span>
+                <span class="icon">
+                    💬
+                </span>
 
                 <span>
                     Gabung Grup WhatsApp
@@ -356,15 +933,28 @@ h1 {
 
             </a>
 
+
         </div>
 
+
+        <!-- FOOTER -->
+
         <div class="footer">
-            © 2026 DANCOGEMING
+
+            © 2026
+            <strong>DANCOGEMING</strong>
+
+            <br>
+
+            All Rights Reserved
+
         </div>
+
 
     </div>
 
 </div>
 
+
 </body>
-            </html>
+    </html>
